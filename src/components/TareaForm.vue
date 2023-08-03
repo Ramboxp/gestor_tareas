@@ -1,26 +1,44 @@
 <!-- TareaForm.vue -->
 <template>
     <form @submit.prevent="agregarTarea">
-
-        <div class="mb-3">
-            <input type="text" class="form-control" id="tarea" aria-describedby="tarea" placeholder="Ingrese tarea">
-        </div>
+        <input type="text" class="form-control my-3" placeholder="Ingrese tarea" v-model.trim="texto" required>
     </form>
 </template>
   
 <script>
-import { inject } from 'vue';
+/* eslint-disable */
+import { inject, ref } from 'vue';
 export default {
+
     name: "Tarea-Form",
     setup() {
-        const arrayTareas = inject('arregloTareas')
+        const tareas = inject('arregloTareas')
+        const texto = ref('')
 
-        const agregarTarea = () => { 
-        
-        } 
+        const agregarTarea = () => {
+
+            if (texto.value === '') {
+                console.log('Uff, necesitas escribir algo')
+                return
+            }
+
+            const tarea = {
+                texto: texto.value,
+                estado: false,
+                id: Date.now()
+
+            }
+
+            tareas.value.push(tarea)
+            texto.value = ''
+
+           
+        }
 
         return {
-            agregarTarea
+            agregarTarea,
+            texto,
+
         }
     }
 

@@ -1,26 +1,30 @@
 <!-- Tarea-App.vue -->
 <template>
-    <div>
+ 
         <h1>Algo</h1>
+
         <TareaForm />
-    </div>
+        <TareaList />
+
 </template>
   
 <script>
 import { provide, ref } from 'vue'
 import TareaForm from './TareaForm.vue'
+import TareaList from './TareaList.vue'
 
 export default {
     name: "Tarea-App",
 
-    components: { TareaForm },
+    components: {
+        TareaForm,
+        TareaList
+    },
 
     setup() {
         const arregloTareas = ref([])
         provide('arregloTareas', arregloTareas)
     }
-
-
 }
 </script>
   
