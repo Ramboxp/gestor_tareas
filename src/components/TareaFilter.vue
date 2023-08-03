@@ -5,7 +5,7 @@
                 Activos
             </span>
 
-            <span  role="button" @click="filtrar('todos')">
+            <span role="button" @click="filtrar('todos')">
                 Todos
             </span>
 
@@ -30,5 +30,3 @@ export default {
     }
 }
 </script>
-
-<style></style>

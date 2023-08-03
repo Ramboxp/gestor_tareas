@@ -1,5 +1,5 @@
 <template>
-  <ul class="list-group">
+  <ul class="list-group list-group-flush">
     <TareaItem v-for="tarea in tareas" :key="tarea.id" :tarea="tarea" />
 
     <li v-if="tareas.length === 0" class="list-group-item">
@@ -49,9 +49,6 @@ export default {
 
     provide('estado', estado)
     return { tareas, tareasTareas }
-
-
-
 
   },
 

@@ -1,7 +1,7 @@
 <template>
     <li class="list-group-item d-flex justify-content-between align-items-center">
         <span v-bind:class="{ 'incorrecto': tarea.estado }" role="button" @click="cambiaEstado(tarea.id)">
-            {{ tarea.texto }}
+                {{ tarea.texto }}
         </span>
         <span role="button" @click="borrar(tarea.id)">
             <i class="fa-solid fa-xmark"></i>

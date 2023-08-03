@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <tarea-app />
+    <TareaApp />
 
   </div>
 </template>
