@@ -3,7 +3,7 @@
         <span role="button">
            {{ contarActivos }}
         </span>
-        <span role="button">
+        <span role="button" @click="eliminaCompletados">
                 Eliminar completados
         </span>
     </li>
@@ -20,7 +20,10 @@ export default {
         const contarActivos = computed(() => { 
             return tareas.value.filter( item => item.estado === false).length
         })
-    return { contarActivos }
+        const eliminaCompletados = () => { 
+            tareas.value = tareas.value.filter( item => item.estado === false)
+        }
+    return { contarActivos,eliminaCompletados }
   },
 }
 </script>
