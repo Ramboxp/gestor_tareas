@@ -9,12 +9,11 @@
 /* eslint-disable */
 import { inject, ref } from 'vue';
 export default {
-
     name: "Tarea-Form",
+
     setup() {
         const tareas = inject('arregloTareas')
         const texto = ref('')
-
         const agregarTarea = () => {
 
             if (texto.value === '') {
@@ -31,14 +30,11 @@ export default {
 
             tareas.value.push(tarea)
             texto.value = ''
-
-           
         }
 
         return {
             agregarTarea,
             texto,
-
         }
     }
 

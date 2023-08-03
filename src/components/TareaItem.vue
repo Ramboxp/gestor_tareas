@@ -1,19 +1,20 @@
 <template>
-    <ul class="list-group-item d-flex justify-content-between align-items-center">
-        <span role="button">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <span v-bind:class="{ 'incorrecto': tarea.estado }" role="button" @click="cambiaEstado(tarea.id)">
             {{ tarea.texto }}
         </span>
         <span role="button" @click="borrar(tarea.id)">
             <i class="fa-solid fa-xmark"></i>
         </span>
-    </ul>
+    </li>
 </template>
   
 <script>
 /* eslint-disable */
 import { inject } from 'vue'
 export default {
-    name: 'Tarea-List',
+    name: 'Tarea-Item',
+
     props: {
         tarea: {
             type: Object,
@@ -22,12 +23,25 @@ export default {
     },
     setup() {
         const tareas = inject('arregloTareas')
-        
         const borrar = id => {
-            tareas.value = tareas.value.filter( item => item.id !== id )
+            tareas.value = tareas.value.filter(item => item.id !== id)
         }
-
-        return { borrar }
+        const cambiaEstado = id => {
+            tareas.value = tareas.value.map(item => {
+                if (item.id === id) {
+                    item.estado = true
+                }
+                return item
+            })
+        }
+        return { borrar, cambiaEstado }
     }
 }
 </script>
+
+<style>
+.incorrecto {
+    text-decoration: line-through;
+    color: rgb(85, 0, 255);
+}
+</style>
