@@ -1,6 +1,6 @@
 <!-- Tarea-App.vue -->
 <template>
-    <h1>Planificador de Tareas</h1>
+    <h1 class="text-center">Tareas</h1>
     <TareaForm />
     <TareaList />
 </template>

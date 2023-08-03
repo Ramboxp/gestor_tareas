@@ -1,12 +1,14 @@
 <template>
-    <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div class="mt-3 mb-3">
+    <li class="card-body d-flex justify-content-between align-items-center">
         <span role="button">
-            Cantidad: {{ contarActivos }}
+            Activos: {{ contarActivos }}
         </span>
-        <span role="button" @click="eliminaCompletados">
+        <button type="button" class="btn btn-danger" role="button" @click="eliminaCompletados">
             Eliminar completados
-        </span>
+        </button>
     </li>
+</div>
 </template>
 
 <script>

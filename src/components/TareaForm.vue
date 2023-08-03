@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="agregarTarea">
-        <input type="text" class="form-control my-3" placeholder="Ingrese tarea" v-model.trim="texto" required>
+        <input type="text" maxlength="25" class="form-control my-3" placeholder="Ingrese tarea" v-model.trim="texto">
         <p v-if="mensajeError" class="alert alert-danger">{{ mensajeError }}</p>
     </form>
 </template>

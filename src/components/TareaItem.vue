@@ -29,7 +29,7 @@ export default {
         const cambiaEstado = id => {
             tareas.value = tareas.value.map(item => {
                 if (item.id === id) {
-                    item.estado = true
+                    item.estado = !item.estado; // Aquí alternamos el estado entre true y false
                 }
                 return item
             })
@@ -42,6 +42,6 @@ export default {
 <style>
 .incorrecto {
     text-decoration: line-through;
-    color: rgb(85, 0, 255);
+    color: rgb(255, 64, 0);
 }
 </style>
