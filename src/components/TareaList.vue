@@ -5,7 +5,7 @@
     <li v-if="tareas.length === 0 " class="list-group-item">
       <div class="alert alert-success" role="alert">
         <h4 class="alert-heading">No hay tareas</h4>
-          <p>Ingrese sus tarea por favor</p>
+          
         <hr>
       </div>
     </li>
