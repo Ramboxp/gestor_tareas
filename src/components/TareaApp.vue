@@ -6,7 +6,7 @@
 </template>
   
 <script>
-import { provide, ref } from 'vue'
+import { provide, ref, watchEffect } from 'vue'
 import TareaForm from './TareaForm.vue'
 import TareaList from './TareaList.vue'
 
@@ -21,6 +21,14 @@ export default {
     setup() {
         const arregloTareas = ref([])
         provide('arregloTareas', arregloTareas)
+        //LocalStoge
+        if (localStorage.getItem('arregloTareas')) {
+            arregloTareas.value = JSON.parse(localStorage.getItem('arregloTareas'))
+        }
+
+        watchEffect(() => {
+            localStorage.setItem('arregloTareas', JSON.stringify(arregloTareas.value))
+        })
     }
 }
 </script>
